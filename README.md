@@ -1,13 +1,14 @@
 # FoodTruckProject
 
-#Overview
+## Overview
+Overview body
 
-##Technologies Used
--Java OOP
--Eclipse
--Git
+## Technologies Used
+- Java OOP
+- Eclipse
+- Git
 
-##Lessons Learned
--
--
--
+## Lessons Learned
+- something
+- else
+- more
