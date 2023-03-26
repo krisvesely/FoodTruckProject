@@ -9,7 +9,6 @@ public class FoodTruckApp {
 
 	public static void main(String[] args) {
 		FoodTruckApp fta = new FoodTruckApp();
-//		int truckCount = 0;
 		fta.run();
 	}
 	public void run() {
@@ -30,7 +29,7 @@ public class FoodTruckApp {
 					if (nameEntry.toLowerCase().equals("quit")) { 
 						if (i == 0) {
 							System.out.println("Please enter at least one food truck to use the application.");
-							i = -1; //resets loop counter so that user may still enter 5 trucks after the instructional prompt
+							i = -1; //resets loop counter so that user may still enter up to 5 trucks after the instructional prompt
 							continue;
 						}
 						else {
@@ -40,12 +39,22 @@ public class FoodTruckApp {
 					else {
 						System.out.print("What type of food does " + nameEntry + " serve? ");
 						String cuisineEntry = sc.nextLine();
-						System.out.print("Please enter how you rate " + nameEntry + ", on a numeric scale "
-								+ "from 1 to 5, with 5 being the best: ");
-						int ratingEntry = sc.nextInt(); //add loop for verifying 1-5 entry
-						sc.nextLine();
+						int ratingEntry = 0;
+						boolean validRating = false;
+						do {
+							System.out.print("Please enter how you rate " + nameEntry + ", on a numeric scale "
+									+ "from 1 to 5, with 5 being the best: ");
+							ratingEntry = sc.nextInt(); 
+								if (ratingEntry < 1 || ratingEntry > 5) {
+									System.out.println("\nInvalid entry. Please enter a number '1', '2', '3', '4', or '5'");
+								}
+								else {
+									validRating = true;
+								}
+						} while (!validRating);
 						FoodTruck newTruck = new FoodTruck(nameEntry, cuisineEntry, ratingEntry);
 						fleet[i] = newTruck;
+						sc.nextLine();
 					}
 			} 
 	}
@@ -105,17 +114,16 @@ public class FoodTruckApp {
 	public void getHighestRated(int totalTruckCount) {
 		System.out.println();
 		int max = fleet[0].getRating();
-		int maxIndex = 0;
 		for (int i = 1; i < totalTruckCount; i++) {
-			if (max < fleet[i].getRating()) {
+			if (max <= fleet[i].getRating()) {
 				max = fleet[i].getRating();
-				maxIndex = i;
 			}
 		}
-		System.out.println("Here is the highest rated food truck, with a rating of " + max + ":");
-		System.out.println(getFleet()[maxIndex]);
+		System.out.println("The highest rated food truck(s), with a rating of " + max + ":");
+		for (int i = 0; i < totalTruckCount; i++) {
+			if (fleet[i].getRating() == max) {
+				System.out.println(getFleet()[i]);
+			}
+		}
 	}
-	//more methods
-	//scanner lives in this class
-	//park into fleet
 }
