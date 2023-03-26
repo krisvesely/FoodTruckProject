@@ -2,7 +2,7 @@
 
 ## Overview
 Allows users to enter a name, food type, and rating for up to five food trucks. Upon entering food truck data, 
-users can to view a complete listing of the food trucks with associated food type and rating, view the average rating
+users can view a complete listing of the food trucks with associated food type and rating, view the average rating
 for the trucks, and find the truck(s) with the highest rating, until they command the application to quit.
 
 ## Technologies Used
