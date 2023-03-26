@@ -3,14 +3,14 @@ package com.skilldistillery.foodtruck.entities;
 public class FoodTruck {
 	private String name;
 	private String cuisineType;
-	private int rating;
+	private double rating;
 	private static int truck_counter = 0;
 	private int truckID = 0;
 	
 public FoodTruck() {
 }
 
-public FoodTruck(String name, String cuisineType, int rating) {
+public FoodTruck(String name, String cuisineType, double rating) {
 	this.name = name;
 	this.cuisineType = cuisineType;
 	this.rating = rating;
@@ -30,10 +30,10 @@ public String getCuisineType() {
 public void setCuisineType(String cuisineType) {
 	this.cuisineType = cuisineType;
 }
-public int getRating() {
+public double getRating() {
 	return rating;
 }
-public void setRating(int rating) {
+public void setRating(double rating) {
 	this.rating = rating;
 }
 public static int getTruck_counter() {

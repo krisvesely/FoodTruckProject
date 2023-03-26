@@ -39,13 +39,13 @@ public class FoodTruckApp {
 					else {
 						System.out.print("What type of food does " + nameEntry + " serve? ");
 						String cuisineEntry = sc.nextLine();
-						int ratingEntry = 0;
+						double ratingEntry = 0.0;
 						boolean validRating = false;
 						do {
 							System.out.print("Please enter how you rate " + nameEntry + ", on a numeric scale "
 									+ "from 1 to 5, with 5 being the best: ");
-							ratingEntry = sc.nextInt(); 
-								if (ratingEntry < 1 || ratingEntry > 5) {
+							ratingEntry = sc.nextDouble(); 
+								if (ratingEntry < 1.0 || ratingEntry > 5.0) {
 									System.out.println("\nInvalid entry. Please enter a number '1', '2', '3', '4', or '5'");
 								}
 								else {
@@ -113,7 +113,7 @@ public class FoodTruckApp {
 	
 	public void getHighestRated(int totalTruckCount) {
 		System.out.println();
-		int max = fleet[0].getRating();
+		double max = fleet[0].getRating();
 		for (int i = 1; i < totalTruckCount; i++) {
 			if (max <= fleet[i].getRating()) {
 				max = fleet[i].getRating();
@@ -127,3 +127,4 @@ public class FoodTruckApp {
 		}
 	}
 }
+
